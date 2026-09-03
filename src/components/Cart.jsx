@@ -4,7 +4,10 @@ export default function Cart() {
     return (
         <>
             <Header />
-            <h2>Cart</h2>
+            
+            <main>
+                <h2>Cart</h2>                
+            </main>
         </>
     )
 }

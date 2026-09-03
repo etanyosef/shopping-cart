@@ -4,7 +4,10 @@ export default function Shop() {
     return (
         <>
             <Header />
-            <h2>Shop</h2>
+            
+            <main>
+                <h2>Shop</h2>
+            </main>
         </>
     )
 }
