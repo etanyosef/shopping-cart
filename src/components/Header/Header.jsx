@@ -1,11 +1,13 @@
 import { Link } from "react-router"
+import styles from "./header.module.css";
+
 export default function Header() {
     return (
         <header>
             <h1>Tindahan</h1>
 
             <nav>
-                <ul>
+                <ul className={styles.mainMenu}>
                     <li>
                         <Link to="/">Home</Link>
                     </li>
