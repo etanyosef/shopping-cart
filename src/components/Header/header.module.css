@@ -1,0 +1,12 @@
+.mainMenu {
+    display: flex;
+    list-style: none;
+}
+
+.mainMenu li {
+    margin: 0;
+}
+
+.mainMenu a {
+    text-decoration: none;
+}
