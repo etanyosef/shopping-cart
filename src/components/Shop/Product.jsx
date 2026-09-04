@@ -71,19 +71,23 @@ export default function Product() {
                         <img src={product.image} alt={product.title} />
                         <span className={styles.productDesc}>
                             <p>{product.description}</p>
-                            <em>Php {product.price}</em>
-                            <button>Add to cart</button>
-                            <div>
-                                <button onClick={decrement}>-</button>
-                                <input 
-                                    type="number" 
-                                    min={1} 
-                                    max={9} 
-                                    value={count}
-                                    onChange={(e) => handleCountChange(e)}
-                                />
-                                <button onClick={increment}>+</button>
+
+                            <div className={styles.pricing}>
+                                <p>Php {product.price}</p>
+                                <div>
+                                    <button onClick={decrement}>-</button>
+                                    <input 
+                                        type="number" 
+                                        min={1} 
+                                        max={9} 
+                                        value={count}
+                                        onChange={(e) => handleCountChange(e)}
+                                    />
+                                    <button onClick={increment}>+</button>
+                                </div>
                             </div>
+
+                            <button>Add to cart</button>
                         </span>
                     </div>
                 </div>
