@@ -1,5 +1,6 @@
-import { Link } from "react-router"
+import { Link, NavLink } from "react-router"
 import styles from "./header.module.css";
+import { useState } from "react";
 
 export default function Header() {
     return (
@@ -9,10 +10,20 @@ export default function Header() {
             <nav>
                 <ul className={styles.mainMenu}>
                     <li>
-                        <Link to="/">Home</Link>
+                        <NavLink 
+                            to="/"
+                        >Home</NavLink>
                     </li>
-                    <li><Link to="/cart">Cart</Link></li>
-                    <li><Link to="/shop">Shop</Link></li>
+                    <li>
+                        <NavLink 
+                            to="/shop"
+                        >Shop</NavLink>
+                    </li>
+                    <li>
+                        <NavLink 
+                            to="/cart"
+                        >Cart</NavLink>
+                    </li>
                 </ul>
             </nav>
         </header>
