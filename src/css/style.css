@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+main {
+    padding: 0 1rem;
+}
+
+header {
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.active {
+    color: red;
+}
