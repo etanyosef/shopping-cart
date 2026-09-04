@@ -1,6 +1,7 @@
 .mainMenu {
     display: flex;
     list-style: none;
+    gap: 2rem;
 }
 
 .mainMenu li {
@@ -9,4 +10,10 @@
 
 .mainMenu a {
     text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.mainMenu a:hover {
+    color: red;
+    text-decoration: underline;
 }
