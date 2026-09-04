@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Header from "./Header/Header";
 import ProductCard from "./Shop/ProductCard";
 
@@ -49,6 +50,10 @@ export default function Shop() {
             
             <main>
                 <h2>Shop</h2>
+
+                {products.map(product => (
+                    <ProductCard key={product.id} products={product} />
+                ))}
             </main>
         </>
     )
