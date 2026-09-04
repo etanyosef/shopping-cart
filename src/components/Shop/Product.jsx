@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router"
+import { Link, useParams } from "react-router"
+import styles from "./Shop.module.css"
 import Header from "../Header/Header";
 
 export default function Product() {
     const { productId } = useParams();
     const [product, setProduct]  = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    console.log(productId)
+    const [count, setCount] = useState(1);
 
     useEffect(() => {
         (async () => {
@@ -18,9 +19,9 @@ export default function Product() {
 
                 setProduct(result);
             } catch (error) {
-
+                setError(error);
             } finally {
-                console.log(product);
+                setIsLoading(false);
             }
         })()
     }, []);
@@ -64,11 +65,28 @@ export default function Product() {
         <>
             <Header />
             <main>
-                {product ? (
+                <div className={styles.productContainer}>
                     <h2>{product.title}</h2>
-                ) : (
-                    <h2>Product des not exist.</h2>
-                )}
+                    <div className={styles.productInfo}>
+                        <img src={product.image} alt={product.title} />
+                        <span className={styles.productDesc}>
+                            <p>{product.description}</p>
+                            <em>Php {product.price}</em>
+                            <button>Add to cart</button>
+                            <div>
+                                <button onClick={decrement}>-</button>
+                                <input 
+                                    type="number" 
+                                    min={1} 
+                                    max={9} 
+                                    value={count}
+                                    onChange={(e) => handleCountChange(e)}
+                                />
+                                <button onClick={increment}>+</button>
+                            </div>
+                        </span>
+                    </div>
+                </div>
             </main>
         </>
     )
