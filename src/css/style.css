@@ -1,9 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    height: 100vh;
+    font-family: sans-serif;
+    line-height: 1.4;
+    letter-spacing: 0.8px;
+}
+
+img {
+    width: 100%;
 }
 
 main {
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 header {
