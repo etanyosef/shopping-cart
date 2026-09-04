@@ -23,7 +23,42 @@ export default function Product() {
                 console.log(product);
             }
         })()
-    }, [])
+    }, []);
+
+    function handleCountChange(e) {
+        if (e.target.value > 9) return
+        setCount(e.target.value);
+    }
+
+    function decrement() {
+        setCount(prevCount => prevCount - 1);
+    }
+
+    function increment() {
+        setCount(prevCount => prevCount + 1);
+    }
+
+    if (isLoading) {
+        return (
+            <>
+                <Header />
+                <main>
+                    <h2>Loading...</h2>
+                </main>
+            </>
+        )
+    }
+
+    if (!product) {
+        return (
+            <>
+                <Header />
+                <main>
+                    <h2>Product does not exist. Go back to <Link to="/shop">Shop</Link>.</h2>
+                </main>
+            </>
+        )
+    }
 
     return (
         <>
