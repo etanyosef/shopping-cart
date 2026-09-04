@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
+import Header from "../Header/Header";
 
 export default function Product() {
     const { productId } = useParams();
@@ -25,12 +26,15 @@ export default function Product() {
     }, [])
 
     return (
-        <div>
-            {product ? (
-                <h2>{product.title}</h2>
-            ) : (
-                <h2>Product des not exist.</h2>
-            )}
-        </div>
+        <>
+            <Header />
+            <main>
+                {product ? (
+                    <h2>{product.title}</h2>
+                ) : (
+                    <h2>Product des not exist.</h2>
+                )}
+            </main>
+        </>
     )
 }
