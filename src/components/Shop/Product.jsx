@@ -87,7 +87,10 @@ export default function Product() {
 
                             <Counter />
 
-                            <AddToCart />
+                            <div className={styles.buttonContainer}>
+                                <AddToCart />
+                                <Link to="/shop">Back to Shop</Link>
+                            </div>
                         </span>
                     </div>
                 </div>
