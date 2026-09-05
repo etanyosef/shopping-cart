@@ -77,12 +77,14 @@
 
 .productInfo {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
+    align-items: center;
 }
 
 .productInfo .productDesc {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     align-items: flex-start;
     justify-content: space-between;
 }
