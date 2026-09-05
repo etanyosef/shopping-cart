@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router"
 import styles from "./Shop.module.css"
+import loader from "./Loader/productLoader.module.css"
 import Header from "../Header/Header";
 import Counter from "./Counter/Counter";
 import AddToCart from "./AddToCart/AddToCart";
@@ -47,7 +48,7 @@ export default function Product() {
             <>
                 <Header />
                 <main>
-                    <h2>Loading...</h2>
+                    <span className={loader.loader}></span>
                 </main>
             </>
         )
