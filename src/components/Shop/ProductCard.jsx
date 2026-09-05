@@ -1,18 +1,21 @@
 import { Link } from "react-router";
+import Counter from "./Counter/Counter";
 import styles from "./Shop.module.css";
+import AddToCart from "./AddToCart/AddToCart";
 
 export default function ProductCard({products}) {
     return (
-        <div className={styles.product}>
+        <div className={styles.productCard}>
+            <img src={products.image} alt={products.title} />
+            <span className={`${styles.category} ${products.category}`}>{products.category}</span>
             <h3>
                 <Link to={`/product/${products.id}`}>{products.title}</Link>
             </h3>
             {/* <p>Rating: {products.rating.rate} Count: {products.rating.count}</p> */}
-            <span className={`${styles.category} ${products.category}`}>{products.category}</span>
-            <img src={products.image} alt={products.title} />
             {/* <p>{products.description}</p> */}
-            <p>Php {products.price}</p>
-            <button>Add to cart</button>
+            <em>Php {products.price}</em>
+            <Counter />
+            <AddToCart />
         </div>
     )
 }
