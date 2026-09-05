@@ -48,7 +48,9 @@ export default function Product() {
             <>
                 <Header />
                 <main>
-                    <span className={loader.loader}></span>
+                    <div className={styles.productContainer}>
+                        <span className={loader.loader}></span>
+                    </div>
                 </main>
             </>
         )
