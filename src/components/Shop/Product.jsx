@@ -75,10 +75,10 @@ export default function Product() {
             <Header />
             <main>
                 <div className={styles.productContainer}>
-                    <h2>{product.title}</h2>
                     <div className={styles.productInfo}>
                         <img src={product.image} alt={product.title} />
                         <span className={styles.productDesc}>
+                            <h2>{product.title}</h2>
                             <p>{product.description}</p>
                             <em>Php {product.price}</em>
 
