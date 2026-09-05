@@ -3,12 +3,14 @@
     margin: 0;
 }
 
-body {
+#root {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     font-family: sans-serif;
     line-height: 1.4;
     letter-spacing: 0.8px;
+    display: flex;
+    flex-direction: column;
 }
 
 img {
@@ -17,6 +19,9 @@ img {
 
 main {
     padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -24,12 +29,21 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 1rem 1rem;
 }
 
 .page-title {
     text-align: center;
     margin: 1rem 0;
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
 }
 
 .active {
