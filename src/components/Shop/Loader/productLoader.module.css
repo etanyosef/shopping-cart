@@ -1,9 +1,7 @@
 .loader {
   --color-1: rgba(38, 50, 56, 0.4);
   --color-2: #ddd;
-  --size: 2px;
-
-  margin: 1rem auto 0;
+  --size: 1.5px;
 
   width: calc(320 * var(--size));
   height: calc(170 * var(--size));
