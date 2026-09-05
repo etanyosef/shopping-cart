@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import ProductCard from "./ProductCard";
 import styles from "./Shop.module.css";
+import loader from "./Loader/shopLoader.module.css";
 
 export default function Shop() {
     const [products, setProducts] = useState([]);
@@ -16,6 +17,8 @@ export default function Shop() {
                 //     .then(json => console.log(json));       
 
                 // get product ids
+                setIsLoading(true);
+
                 const productIds = Array.from({length: 10}, (x, i) => i + 1);
                     
                 const response = await Promise.all(
@@ -49,6 +52,18 @@ export default function Shop() {
         })()
     }, [])
 
+    if (isLoading) {
+        return (
+            <>
+                <Header />
+                <main>
+                    <h2 className="page-title">Shop</h2>
+                    <div className={loader.loader}></div>
+                </main>
+            </>
+        )
+    }
+
     return (
         <>
             <Header />
@@ -57,11 +72,9 @@ export default function Shop() {
                 <h2 className="page-title">Shop</h2>
 
                 <div className={styles.container}>
-                    {isLoading ? (
-                        <h3>Loading..</h3>
-                    ) : (
-                        products.map(product => (<ProductCard key={product.id} products={product} />))
-                    )}
+                    {products.map(product => (
+                        <ProductCard key={product.id} products={product} />
+                    ))}
                 </div>
 
             </main>
