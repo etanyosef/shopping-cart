@@ -1,0 +1,26 @@
+.counter {
+    display: flex;
+    gap: 4px;
+}
+
+.counter input[type="number"]::-webkit-outer-spin-button,
+.counter input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+.counter input[type="number"],
+.counter button {
+    padding: 6px 4px;
+    margin: 0;
+    text-align: center;
+    width: 2rem;
+    font-size: 1rem;
+    border: 1px solid silver;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.counter button {
+    cursor: pointer;
+    font-weight: 600;
+}
