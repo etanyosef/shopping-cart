@@ -6,7 +6,7 @@ export default function Cart() {
             <Header />
             
             <main>
-                <h2>Cart</h2>                
+                <h2 className="page-title">Cart</h2>                
             </main>
         </>
     )

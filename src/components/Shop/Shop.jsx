@@ -54,7 +54,7 @@ export default function Shop() {
             <Header />
             
             <main>
-                <h2>Shop</h2>
+                <h2 className="page-title">Shop</h2>
 
                 <div className={styles.container}>
                     {isLoading ? (
