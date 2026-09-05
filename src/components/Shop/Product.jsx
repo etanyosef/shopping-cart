@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router"
 import styles from "./Shop.module.css"
 import Header from "../Header/Header";
+import Counter from "./Counter/Counter";
+import AddToCart from "./AddToCart/AddToCart";
 
 export default function Product() {
     const { productId } = useParams();
@@ -27,7 +29,7 @@ export default function Product() {
     }, []);
 
     function handleCountChange(e) {
-        if (e.target.value > 9) return
+        if (e.target.value > 99) return
         setCount(e.target.value);
     }
 
@@ -36,6 +38,7 @@ export default function Product() {
     }
 
     function increment() {
+        if (count === 99) return
         setCount(prevCount => prevCount + 1);
     }
 
@@ -61,6 +64,12 @@ export default function Product() {
         )
     }
 
+    if (error) {
+        return (
+            <h1>{error}</h1>
+        )
+    }
+
     return (
         <>
             <Header />
@@ -71,23 +80,11 @@ export default function Product() {
                         <img src={product.image} alt={product.title} />
                         <span className={styles.productDesc}>
                             <p>{product.description}</p>
+                            <em>Php {product.price}</em>
 
-                            <div className={styles.pricing}>
-                                <p>Php {product.price}</p>
-                                <div>
-                                    <button onClick={decrement}>-</button>
-                                    <input 
-                                        type="number" 
-                                        min={1} 
-                                        max={9} 
-                                        value={count}
-                                        onChange={(e) => handleCountChange(e)}
-                                    />
-                                    <button onClick={increment}>+</button>
-                                </div>
-                            </div>
+                            <Counter />
 
-                            <button>Add to cart</button>
+                            <AddToCart />
                         </span>
                     </div>
                 </div>
