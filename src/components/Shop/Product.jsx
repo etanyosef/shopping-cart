@@ -88,10 +88,10 @@ export default function Product() {
                             <p>{product.description}</p>
                             <em>Php {product.price}</em>
 
-                            <Counter />
+                            <Counter count={count} setCount={setCount} />
 
                             <div className={styles.buttonContainer}>
-                                <AddToCart products={product} />
+                                <AddToCart products={product} count={count} />
                                 <Link to="/shop">Back to Shop</Link>
                             </div>
                         </span>
