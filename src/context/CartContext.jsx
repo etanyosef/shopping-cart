@@ -29,6 +29,7 @@ export default function CartProvider({ children }) {
         // });
 
         if (cartLength === 0) {
+            console.log('empty')
             return setCart([
                 {
                     id,
@@ -42,23 +43,38 @@ export default function CartProvider({ children }) {
 
         setCart(prevCart => prevCart.map(item => {
             if (item.id === id) {
+                console.log('in')
                 return {
                     ...item,
                     count: item.count + count,
                 }
-            } else {
-                return (
-                    prevCart,
-                    {
-                        id,
-                        title,
-                        image,
-                        price,
-                        count,
-                    }
-                )
+            } 
+            else {
+                console.log('new')
+                return {
+                    ...item
+                    // {
+                    //     id,
+                    //     title,
+                    //     image,
+                    //     price,
+                    //     count,
+                    // }
+                }
             }
         }))
+
+        setCart(prevCart => [
+            ...prevCart,
+            {
+                id,
+                title,
+                image,
+                price,
+                count
+            }
+        ])
+
         console.log(cart)
     }
 
