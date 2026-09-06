@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router"
 import styles from "./Shop.module.css"
 import loader from "./Loader/productLoader.module.css"
 import Header from "../Header/Header";
 import Counter from "./Counter/Counter";
 import AddToCart from "./AddToCart/AddToCart";
-import { CartContext } from "../../context/CartContext";
 
 export default function Product() {
     const { productId } = useParams();
@@ -13,8 +12,6 @@ export default function Product() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [count, setCount] = useState(1);
-
-    const { cartLength, handleAddToCart } = useContext(CartContext);
 
     useEffect(() => {
         (async () => {
@@ -31,20 +28,6 @@ export default function Product() {
             }
         })()
     }, []);
-
-    function handleCountChange(e) {
-        if (e.target.value > 99) return
-        setCount(e.target.value);
-    }
-
-    function decrement() {
-        setCount(prevCount => prevCount - 1);
-    }
-
-    function increment() {
-        if (count === 99) return
-        setCount(prevCount => prevCount + 1);
-    }
 
     if (isLoading) {
         return (
