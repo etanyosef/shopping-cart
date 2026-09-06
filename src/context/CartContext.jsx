@@ -7,24 +7,58 @@ export default function CartProvider({ children }) {
     const cartLength = cart.length;
 
     function handleAddToCart(id, title, image, price, count) {
-        setCart(prevCart => {
-            if (prevCart.id === id) {
-                return [
-                    ...prevCart,
-                ]
+        // setCart(prevCart => {
+        //     if (prevCart.id === id) {
+        //         console.log(id)
+        //         return [
+        //             ...prevCart,
+        //         ]
+        //     } else {
+        //         console.log(id)
+        //         return [
+        //             ...prevCart,
+        //             {
+        //                 id: id,
+        //                 title: title,
+        //                 image: image,
+        //                 price: price,
+        //                 count: count,
+        //             },
+        //         ];
+        //     }
+        // });
+
+        if (cartLength === 0) {
+            return setCart([
+                {
+                    id,
+                    title,
+                    image,
+                    price,
+                    count
+                }
+            ]);
+        }
+
+        setCart(prevCart => prevCart.map(item => {
+            if (item.id === id) {
+                return {
+                    ...item,
+                    count: item.count + count,
+                }
             } else {
-                return [
-                    ...prevCart,
+                return (
+                    prevCart,
                     {
-                        id: id,
-                        title: title,
-                        image: image,
-                        price: price,
-                        count: count,
-                    },
-                ];
+                        id,
+                        title,
+                        image,
+                        price,
+                        count,
+                    }
+                )
             }
-        });
+        }))
         console.log(cart)
     }
 
