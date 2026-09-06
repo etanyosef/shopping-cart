@@ -1,16 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import ProductCard from "./ProductCard";
 import styles from "./Shop.module.css";
 import loader from "./Loader/shopLoader.module.css";
-import { CartContext } from "../../context/CartContext";
 
 export default function Shop() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-
-    const { handleAddtoCart } = useContext(CartContext);
 
     useEffect(() => {
         (async () => {
