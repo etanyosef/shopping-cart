@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid silver;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.item img {
+    width: 100px;
+}
