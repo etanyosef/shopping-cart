@@ -5,6 +5,7 @@ import loader from "./Loader/productLoader.module.css"
 import Header from "../Header/Header";
 import Counter from "./Counter/Counter";
 import AddToCart from "./AddToCart/AddToCart";
+import { CartContext } from "../../context/CartContext";
 
 export default function Product() {
     const { productId } = useParams();
@@ -12,6 +13,8 @@ export default function Product() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [count, setCount] = useState(1);
+
+    const { cartLength, handleAddToCart } = useContext(CartContext);
 
     useEffect(() => {
         (async () => {

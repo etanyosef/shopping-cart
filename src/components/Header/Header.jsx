@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export default function Header() {
-    const {cart, setCart} = useContext(CartContext);
+    const {cart, setCart, cartLength} = useContext(CartContext);
 
     function decrement() {
         setCart(prevCart => prevCart - 1)
@@ -29,7 +29,7 @@ export default function Header() {
                     <li>
                         <NavLink to="/cart">Cart</NavLink>
                         <button onClick={decrement}>-</button>
-                        <span>{cart}</span>
+                        <span>{cartLength}</span>
                         <button onClick={increment}>+</button>
                     </li>
                 </ul>
