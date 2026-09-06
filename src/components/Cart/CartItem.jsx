@@ -8,8 +8,10 @@ export default function CartItem({item}) {
 
     return (
         <div className={styles.item}>
-            <img src={item.image} alt={item.title} />
-            <div>
+            <div className={styles.imgContainer}>
+                <img src={item.image} alt={item.title} />
+            </div>
+            <div className={styles.details}>
                 <h3>{item.title}</h3>
                 <p>Quantity: {item.count}</p>
                 <p>Price: {item.price}</p>
