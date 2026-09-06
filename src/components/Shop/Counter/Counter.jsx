@@ -1,8 +1,7 @@
 import { useState } from "react";
 import styles from "./counter.module.css";
 
-export default function Counter() {
-    const [count, setCount] = useState(1);
+export default function Counter({ count, setCount }) {
 
     function increment() {
         setCount(prevCount => prevCount + 1);
