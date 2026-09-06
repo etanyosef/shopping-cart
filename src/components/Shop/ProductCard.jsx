@@ -3,7 +3,7 @@ import Counter from "./Counter/Counter";
 import styles from "./Shop.module.css";
 import AddToCart from "./AddToCart/AddToCart";
 
-export default function ProductCard({products}) {
+export default function ProductCard({products, handleAddToCart}) {
     return (
         <div className={styles.productCard}>
             <img src={products.image} alt={products.title} />
@@ -15,7 +15,7 @@ export default function ProductCard({products}) {
             {/* <p>{products.description}</p> */}
             <em>Php {products.price}</em>
             <Counter />
-            <AddToCart />
+            <AddToCart products={products} />
         </div>
     )
 }

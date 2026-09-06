@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router"
 import styles from "./Shop.module.css"
 import loader from "./Loader/productLoader.module.css"
@@ -91,7 +91,7 @@ export default function Product() {
                             <Counter />
 
                             <div className={styles.buttonContainer}>
-                                <AddToCart />
+                                <AddToCart products={product} />
                                 <Link to="/shop">Back to Shop</Link>
                             </div>
                         </span>
