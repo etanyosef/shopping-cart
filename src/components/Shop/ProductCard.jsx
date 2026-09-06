@@ -2,8 +2,11 @@ import { Link } from "react-router";
 import Counter from "./Counter/Counter";
 import styles from "./Shop.module.css";
 import AddToCart from "./AddToCart/AddToCart";
+import { useState } from "react";
 
-export default function ProductCard({products, handleAddToCart}) {
+export default function ProductCard({ products }) {
+    const [count, setCount] = useState(1);
+
     return (
         <div className={styles.productCard}>
             <img src={products.image} alt={products.title} />
@@ -14,8 +17,8 @@ export default function ProductCard({products, handleAddToCart}) {
             {/* <p>Rating: {products.rating.rate} Count: {products.rating.count}</p> */}
             {/* <p>{products.description}</p> */}
             <em>Php {products.price}</em>
-            <Counter />
-            <AddToCart products={products} />
+            <Counter count={count} setCount={setCount} />
+            <AddToCart products={products} count={count} />
         </div>
     )
 }
