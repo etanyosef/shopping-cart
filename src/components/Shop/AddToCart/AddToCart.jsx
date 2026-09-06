@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styles from "./addToCart.module.css";
 import { CartContext } from "../../../context/CartContext";
 
-export default function AddToCart({ products }) {
+export default function AddToCart({ products, count }) {
     const { handleAddToCart } = useContext(CartContext);
 
     return (
@@ -13,7 +13,7 @@ export default function AddToCart({ products }) {
                 products.title,
                 products.image,
                 products.price,
-                1
+                count
             )}
         >Add to cart</button>
     )
