@@ -1,11 +1,26 @@
 import styles from "./cart.module.css";
 import { useContext } from "react";
+import { Link } from "react-router";
 import Header from "../Header/Header";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
+import ShopNowButton from "../ShopNowButton/ShopNowButton";
 
 export default function Cart() {
-    const { cart, setCart, cartLength } = useContext(CartContext)
+    const { cart, cartLength } = useContext(CartContext)
+
+    if (cartLength === 0) return (
+        <>
+            <Header />
+            <main>
+                <div className={styles.emptyCartContainer}>
+                    <h2>Your cart is empty.</h2>
+                    <ShopNowButton />
+                </div>
+            </main>
+        </>
+    )
+
     return (
         <>
             <Header />
