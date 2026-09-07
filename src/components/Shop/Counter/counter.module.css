@@ -23,4 +23,16 @@
 .counter button {
     cursor: pointer;
     font-weight: 600;
+    background-color: rgb(0, 200, 0);
+    color: white;
+    border: none;
+    transition: 100ms ease;
+}
+
+.counter button:hover {
+    background-color: red;
+}
+
+.counter button:active {
+    transform: translateY(-3px);
 }
