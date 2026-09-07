@@ -108,3 +108,11 @@
     align-items: center;
     gap: 1rem;
 }
+
+.productStats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.9rem;
+    color: rgb(100, 100, 100);
+}
