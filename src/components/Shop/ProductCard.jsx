@@ -14,8 +14,10 @@ export default function ProductCard({ products }) {
             <h3>
                 <Link to={`/product/${products.id}`}>{products.title}</Link>
             </h3>
-            {/* <p>Rating: {products.rating.rate} Count: {products.rating.count}</p> */}
-            {/* <p>{products.description}</p> */}
+            <div className={styles.productStats}>
+                <span>{products.rating}/5 ⭐</span>
+                <span>Sold: {products.count}</span>
+            </div>
             <em>Php {products.price}</em>
             <Counter count={count} setCount={setCount} />
             <AddToCart products={products} count={count} />
