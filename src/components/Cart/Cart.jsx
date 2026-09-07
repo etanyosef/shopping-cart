@@ -26,8 +26,9 @@ export default function Cart() {
             <Header />
             
             <main>
-                <h2 className="page-title">Cart</h2>
                 <div className={styles.container}>
+                    <h2>🛒 Shopping Cart</h2>
+                    <hr className={styles.hr} />
                     {cart.map(item => (
                         <CartItem key={item.id} item={item} />
                     ))}
