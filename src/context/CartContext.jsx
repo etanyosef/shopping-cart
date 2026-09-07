@@ -7,73 +7,21 @@ export default function CartProvider({ children }) {
     const cartLength = cart.length;
 
     function handleAddToCart(id, title, image, price, count) {
-        // setCart(prevCart => {
-        //     if (prevCart.id === id) {
-        //         console.log(id)
-        //         return [
-        //             ...prevCart,
-        //         ]
-        //     } else {
-        //         console.log(id)
-        //         return [
-        //             ...prevCart,
-        //             {
-        //                 id: id,
-        //                 title: title,
-        //                 image: image,
-        //                 price: price,
-        //                 count: count,
-        //             },
-        //         ];
-        //     }
-        // });
+        setCart(prevCart => {
+            const isInCart = prevCart.find(item => item.id === id);
 
-        if (cartLength === 0) {
-            console.log('empty')
-            return setCart([
-                {
-                    id,
-                    title,
-                    image,
-                    price,
-                    count
-                }
-            ]);
-        }
-
-        setCart(prevCart => prevCart.map(item => {
-            if (item.id === id) {
-                console.log('in')
-                return {
-                    ...item,
-                    count: item.count + count,
-                }
-            } 
-            else {
-                console.log('new')
-                return {
-                    ...item
-                    // {
-                    //     id,
-                    //     title,
-                    //     image,
-                    //     price,
-                    //     count,
-                    // }
-                }
+            if (isInCart) {
+                return prevCart.map(item => {
+                    if (item.id === id) {
+                        return {...item, count: item.count + count}
+                    } else {
+                        return item
+                    } 
+                }); 
             }
-        }))
 
-        setCart(prevCart => [
-            ...prevCart,
-            {
-                id,
-                title,
-                image,
-                price,
-                count
-            }
-        ])
+            return [...prevCart, {id, title, image, price, count}];
+        })
 
         console.log(cart)
     }
