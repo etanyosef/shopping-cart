@@ -1,4 +1,5 @@
 import styles from "./cart.module.css";
+import Counter from "../Shop/Counter/Counter";
 
 export default function CartItem({item}) {
 
@@ -13,10 +14,12 @@ export default function CartItem({item}) {
             </div>
             <div className={styles.details}>
                 <h3>{item.title}</h3>
-                <p>Quantity: {item.count}</p>
-                <p>Price: {item.price}</p>
-                <p>Total: {getTotalPrice()}</p>
+                {/* <em>Php {item.price}</em> */}
             </div>
+            {/* <p>Quantity: {item.count}</p> */}
+            <Counter count={item.count} />
+            <p>{getTotalPrice()}</p>
+            <button className={styles.deleteBtn}>❌</button>
         </div>
     )
 }
