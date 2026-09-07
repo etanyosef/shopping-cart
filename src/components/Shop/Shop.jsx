@@ -40,9 +40,11 @@ export default function Shop() {
                     image: product.image,
                     description: product.description,
                     price: product.price,
+                    rating: product.rating.rate,
+                    count: product.rating.count,
                 }));
 
-                console.log(productList)
+                console.log(result)
                 setProducts(productList);
             } catch (error) {
                 setError(error);
