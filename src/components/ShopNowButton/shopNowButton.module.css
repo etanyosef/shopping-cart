@@ -5,4 +5,9 @@
     font-size: 1.5rem;
     padding: 0.5rem 2rem;
     border-radius: 0.5rem;
+    transition: 100ms ease-in-out;
+}
+
+a.btn:hover {
+    background-color: rgb(255, 68, 68);
 }
