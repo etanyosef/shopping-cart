@@ -3,6 +3,7 @@ import '../css/style.css';
 import Footer from "./Footer";
 import { Link } from "react-router";
 import { useState } from "react";
+import ShopNowButton from "./ShopNowButton/ShopNowButton";
 
 export default function App() {
     return (
@@ -12,9 +13,7 @@ export default function App() {
                 <div className="welcome-container">
                     <h2 className="welcome-title">Welcome to my Tindahan!</h2>
                     <br />
-                    <button>
-                        <Link to="/shop">Shop Now</Link>
-                    </button>
+                    <ShopNowButton />
                 </div>
             </main>
             <Footer />
