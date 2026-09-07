@@ -18,9 +18,11 @@ export default function Header() {
                     <li>
                         <NavLink to="/shop">Shop</NavLink>
                     </li>
-                    <li>
+                    <li className={styles.cartBtnContainer}>
                         <NavLink to="/cart">Cart</NavLink>
-                        <span>{cartLength}</span>
+                        <span 
+                        className={cartLength > 0 ? styles.cartLength : styles.cartEmpty}
+                        >{cartLength}</span>
                     </li>
                 </ul>
             </nav>
