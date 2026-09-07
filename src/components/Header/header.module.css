@@ -2,6 +2,7 @@
     display: flex;
     list-style: none;
     gap: 2rem;
+    justify-content: center;
 }
 
 .mainMenu li {
@@ -16,4 +17,24 @@
 .mainMenu a:hover {
     color: red;
     text-decoration: underline;
+}
+
+.cartBtnContainer {
+    display: flex;
+    align-items: center;
+    gap: 4px
+}
+
+.cartLength {
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.cartEmpty {
+    display: none;
 }
