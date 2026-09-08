@@ -66,16 +66,26 @@ export default function Shop() {
 
     function handleFilterProducts() {
         if (filter !== null) {
-        return products.filter(item => (
+            return products.filter(item => (
                 item.category.includes(filter)
-        ))
+            ))
         } else {
             return products
         }
     }
 
     function handleFilterClick(e) {
-        setFilter()
+        const filterBtn = e.target.textContent;
+
+        setFilter(prevFilter => {
+            if (prevFilter === filterBtn) {
+                return null
+            } else {
+                return filterBtn;
+            }
+        })
+
+        console.log(filter)
     }
 
     console.log(handleFilterProducts())
@@ -100,7 +110,11 @@ export default function Shop() {
                 <h2 className="page-title">Shop</h2>
 
                 {categories.length > 0 && (
-                    <Categories categories={categories} setFilter={setFilter} />
+                    <Categories 
+                        categories={categories} 
+                        filter={filter}
+                        handleFilterClick={handleFilterClick}
+                    />
                 )}
 
                 <div className={styles.container}>
