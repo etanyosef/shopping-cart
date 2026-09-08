@@ -3,11 +3,13 @@ import Header from "../Header/Header";
 import ProductCard from "./ProductCard";
 import styles from "./Shop.module.css";
 import loader from "./Loader/shopLoader.module.css";
+import Categories from "../Categories/Categories";
 
 export default function Shop() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [filter, setFilter] = useState(null);
 
     useEffect(() => {
         (async () => {
@@ -19,7 +21,7 @@ export default function Shop() {
                 // get product ids
                 setIsLoading(true);
 
-                const productIds = Array.from({length: 10}, (x, i) => i + 1);
+                const productIds = Array.from({length: 20}, (x, i) => i + 1);
                     
                 const response = await Promise.all(
                     productIds.map(id => fetch(`https://fakestoreapi.com/products/${id}`))
@@ -54,6 +56,26 @@ export default function Shop() {
         })()
     }, [])
 
+    // get categories from products
+    const categories = Object.values(
+        products.reduce((a, {category}) => {
+            a[category] = {category}
+            return a;
+        }, {})
+    ).map(cat => cat.category);
+
+    function handleFilterProducts() {
+        return products.filter(item => (
+            item.category.includes('women')
+        ))
+    }
+
+    function handleFilterClick(e) {
+        setFilter()
+    }
+
+    console.log(handleFilterProducts())
+
     if (isLoading) {
         return (
             <>
@@ -73,8 +95,12 @@ export default function Shop() {
             <main>
                 <h2 className="page-title">Shop</h2>
 
+                {categories.length > 0 && (
+                    <Categories categories={categories} setFilter={setFilter} />
+                )}
+
                 <div className={styles.container}>
-                    {products.map(product => (
+                    {handleFilterProducts().map(product => (
                         <ProductCard 
                             key={product.id} 
                             products={product} 
