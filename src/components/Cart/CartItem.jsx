@@ -4,7 +4,11 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export default function CartItem({item}) {
-    const { handleRemoveItemInCart, incrementItemQuantity } = useContext(CartContext);
+    const { 
+        handleRemoveItemInCart, 
+        incrementItemQuantity,
+        decrementItemQuantity,
+    } = useContext(CartContext);
 
     function getTotalPrice() {
         const total = item.price * item.count;
@@ -23,10 +27,14 @@ export default function CartItem({item}) {
             {/* <p>Quantity: {item.count}</p> */}
             {/* <Counter count={item.count} /> */}
 
-            <div>
-                <button>-</button>
+            <div className={styles.counter}>
+                <button
+                    onClick={() => decrementItemQuantity(item.id)}
+                >➖</button>
                 <span>{item.count}</span>
-                <button onClick={() => incrementItemQuantity(item.id)}>+</button>
+                <button 
+                    onClick={() => incrementItemQuantity(item.id)}
+                >➕</button>
             </div>
 
             <p>{getTotalPrice()}</p>
