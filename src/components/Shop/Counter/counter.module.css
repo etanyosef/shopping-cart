@@ -36,3 +36,11 @@
 .counter button:active {
     transform: translateY(-3px);
 }
+
+.counter button:disabled {
+    background: gray;
+}
+
+.counter button:disabled:active {
+    transform: translate(0);
+}
