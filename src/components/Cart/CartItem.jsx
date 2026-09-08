@@ -7,7 +7,8 @@ export default function CartItem({item}) {
     const { handleRemoveItemInCart, incrementItemQuantity } = useContext(CartContext);
 
     function getTotalPrice() {
-        return item.price * item.count;
+        const total = item.price * item.count;
+        return total.toFixed(2);
     }
 
     return (
