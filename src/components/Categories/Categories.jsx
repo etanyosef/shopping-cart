@@ -1,6 +1,6 @@
 import styles from "./categories.module.css";
 
-export default function Categories({categories}) {
+export default function Categories({categories, filter, handleFilterClick}) {
 
     function categoryIcon(cat) {
         if (cat === 'electronics') {
@@ -17,9 +17,11 @@ export default function Categories({categories}) {
     return (
         <div className={styles.categories}>
             {categories.map(cat => (
-                <button key={cat}>
-                    {categoryIcon(cat)} {cat}
-                </button>
+                <button 
+                    key={cat} 
+                    onClick={(e) => handleFilterClick(e)}
+                    className={ filter === cat ? styles.active : null }
+                >{cat}</button>
             ))}
         </div>
     )
