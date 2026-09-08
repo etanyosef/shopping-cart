@@ -26,8 +26,21 @@ export default function CartProvider({ children }) {
         console.log(cart)
     }
 
+    function handleRemoveItemInCart(id) {
+        setCart(prevCart => prevCart.filter(
+            item => item.id !== id
+        ))
+    }
+
     return (
-        <CartContext.Provider value={{ cart, setCart, cartLength, handleAddToCart }}>
+        <CartContext.Provider 
+            value={{ 
+                cart, 
+                setCart, 
+                cartLength, 
+                handleAddToCart,
+                handleRemoveItemInCart,
+            }}>
             {children}
         </CartContext.Provider>
     )

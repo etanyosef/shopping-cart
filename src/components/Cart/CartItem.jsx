@@ -1,7 +1,10 @@
 import styles from "./cart.module.css";
 import Counter from "../Shop/Counter/Counter";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 export default function CartItem({item}) {
+    const { handleRemoveItemInCart } = useContext(CartContext);
 
     function getTotalPrice() {
         return item.price * item.count;
@@ -19,7 +22,11 @@ export default function CartItem({item}) {
             {/* <p>Quantity: {item.count}</p> */}
             <Counter count={item.count} />
             <p>{getTotalPrice()}</p>
-            <button className={styles.deleteBtn}>❌</button>
+
+            <button 
+                className={styles.deleteBtn}
+                onClick={() => handleRemoveItemInCart(item.id)}
+            >❌</button>
         </div>
     )
 }
