@@ -19,7 +19,10 @@ export default function Counter({ count, setCount }) {
 
     return (
         <div className={styles.counter}>
-            <button onClick={decrement}>-</button>
+            <button 
+                disabled={count <= 1} 
+                onClick={decrement}
+            >-</button>
             <input 
                 type="number" 
                 min={1} 
