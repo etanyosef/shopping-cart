@@ -65,9 +65,13 @@ export default function Shop() {
     ).map(cat => cat.category);
 
     function handleFilterProducts() {
+        if (filter !== null) {
         return products.filter(item => (
-            item.category.includes('women')
+                item.category.includes(filter)
         ))
+        } else {
+            return products
+        }
     }
 
     function handleFilterClick(e) {
