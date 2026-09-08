@@ -37,7 +37,9 @@ export default function CartItem({item}) {
                 >➕</button>
             </div>
 
-            <p>{getTotalPrice()}</p>
+            <div>
+                <span className={styles.total}>{getTotalPrice()}</span>
+            </div>
 
             <button 
                 className={styles.deleteBtn}
