@@ -8,7 +8,7 @@ export default function Header() {
 
     return (
         <header>
-            <h1>Tindahan</h1>
+            <h1>🏬 Tindahan</h1>
 
             <nav>
                 <ul className={styles.mainMenu}>
