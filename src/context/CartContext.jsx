@@ -45,6 +45,21 @@ export default function CartProvider({ children }) {
         }));
     }
 
+    function decrementItemQuantity(id) {
+        setCart(prevCart => prevCart.map(item => {
+            if (item.id === id) {
+                if (item.count === 1) return item;
+
+                return {
+                    ...item,
+                    count: item.count - 1,
+                }
+            } else {
+                return item
+            }
+        }));
+    }
+
     return (
         <CartContext.Provider 
             value={{ 
@@ -54,6 +69,7 @@ export default function CartProvider({ children }) {
                 handleAddToCart,
                 handleRemoveItemInCart,
                 incrementItemQuantity,
+                decrementItemQuantity,
             }}
         >
             {children}
