@@ -67,7 +67,7 @@ export default function Shop() {
     function handleFilterProducts() {
         if (filter !== null) {
             return products.filter(item => (
-                item.category.includes(filter)
+                item.category === filter
             ))
         } else {
             return products
