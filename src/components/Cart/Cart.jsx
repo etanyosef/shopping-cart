@@ -7,7 +7,8 @@ import CartItem from "./CartItem";
 import ShopNowButton from "../ShopNowButton/ShopNowButton";
 
 export default function Cart() {
-    const { cart, cartLength } = useContext(CartContext)
+    const { cart, cartLength } = useContext(CartContext);
+    let cartTotal = 0;
 
     if (cartLength === 0) return (
         <>
@@ -28,10 +29,15 @@ export default function Cart() {
             <main>
                 <div className={styles.container}>
                     <h2>🛒 Shopping Cart</h2>
-                    <hr className={styles.hr} />
-                    {cart.map(item => (
-                        <CartItem key={item.id} item={item} />
-                    ))}
+                    <hr />
+                    {cart.map(item => {
+                        cartTotal += item.count * item.price;
+                        return <CartItem key={item.id} item={item} />
+                    })}
+                    <hr />
+                    <div className={styles.cartTotal}>
+                        <b>Total: {cartTotal.toFixed(2)}</b>
+                    </div>
                 </div>
             </main>
         </>
