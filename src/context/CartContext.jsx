@@ -29,7 +29,20 @@ export default function CartProvider({ children }) {
     function handleRemoveItemInCart(id) {
         setCart(prevCart => prevCart.filter(
             item => item.id !== id
-        ))
+        ));
+    }
+
+    function incrementItemQuantity(id) {
+        setCart(prevCart => prevCart.map(item => {
+            if (item.id === id) {
+                return {
+                    ...item,
+                    count: item.count + 1,
+                }
+            } else {
+                return item
+            }
+        }));
     }
 
     return (
@@ -40,7 +53,9 @@ export default function CartProvider({ children }) {
                 cartLength, 
                 handleAddToCart,
                 handleRemoveItemInCart,
-            }}>
+                incrementItemQuantity,
+            }}
+        >
             {children}
         </CartContext.Provider>
     )
