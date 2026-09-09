@@ -15,7 +15,7 @@
 }
 
 @keyframes slideUp {
-  0% { transform: translateY(30px); }
+  0% { transform: translateY(50px); }
   100% { transform: none; }
 }
 
@@ -30,7 +30,7 @@
     border-radius: 0.8rem;
     border: 1px solid rgb(230, 230, 230);
     transition: 200ms ease-in-out;
-    animation: slideUp 0.4s ease;
+    animation: slideUp 300ms ease;
 }
 
 .productCard h3 {
