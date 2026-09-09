@@ -18,7 +18,7 @@ export default function ProductCard({ products }) {
                 <span>{products.rating}/5 ⭐</span>
                 <span>Sold: {products.count}</span>
             </div>
-            <em>Php {products.price}</em>
+            <em>₱{products.price}</em>
             <Counter count={count} setCount={setCount} />
             <AddToCart products={products} count={count} />
         </div>
