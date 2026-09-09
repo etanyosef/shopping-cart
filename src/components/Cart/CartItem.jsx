@@ -1,5 +1,5 @@
 import styles from "./cart.module.css";
-import Counter from "../Shop/Counter/Counter";
+import { Link } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -21,8 +21,9 @@ export default function CartItem({item}) {
                 <img src={item.image} alt={item.title} />
             </div>
             <div className={styles.details}>
-                <h3>{item.title}</h3>
-                {/* <em>Php {item.price}</em> */}
+                <h3>
+                    <Link to={`/product/${item.id}`}>{item.title}</Link>
+                </h3>
             </div>
             {/* <p>Quantity: {item.count}</p> */}
             {/* <Counter count={item.count} /> */}
