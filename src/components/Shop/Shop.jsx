@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../Header/Header";
+import Footer from "../Footer";
 import ProductCard from "./ProductCard";
 import styles from "./Shop.module.css";
 import loader from "./Loader/shopLoader.module.css";
@@ -127,6 +128,7 @@ export default function Shop() {
                 </div>
 
             </main>
+            <Footer />
         </>
     )
 }
