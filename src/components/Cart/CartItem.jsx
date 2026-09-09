@@ -8,6 +8,7 @@ export default function CartItem({item}) {
         handleRemoveItemInCart, 
         incrementItemQuantity,
         decrementItemQuantity,
+        handleCartQuantityInput
     } = useContext(CartContext);
 
     function getTotalPrice() {
@@ -25,14 +26,20 @@ export default function CartItem({item}) {
                     <Link to={`/product/${item.id}`}>{item.title}</Link>
                 </h3>
             </div>
-            {/* <p>Quantity: {item.count}</p> */}
-            {/* <Counter count={item.count} /> */}
 
             <div className={styles.counter}>
                 <button
                     onClick={() => decrementItemQuantity(item.id)}
                 >➖</button>
-                <span>{item.count}</span>
+
+                <input 
+                    type="number" 
+                    min="1"
+                    max="99"
+                    value={item.count}
+                    onChange={(e) => handleCartQuantityInput(e, item.id)}
+                />
+
                 <button 
                     onClick={() => incrementItemQuantity(item.id)}
                 >➕</button>
