@@ -60,6 +60,12 @@ export default function CartProvider({ children }) {
         }));
     }
 
+    function handleCartQuantityInput(e, id) {
+        setCart(prevCart => prevCart.map(item => (
+            item.id === id ? { ...item, count: e.target.value } : item
+        )))
+    }
+
     return (
         <CartContext.Provider 
             value={{ 
@@ -70,6 +76,7 @@ export default function CartProvider({ children }) {
                 handleRemoveItemInCart,
                 incrementItemQuantity,
                 decrementItemQuantity,
+                handleCartQuantityInput
             }}
         >
             {children}
