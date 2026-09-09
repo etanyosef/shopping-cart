@@ -10,8 +10,17 @@
     align-items: center;
 }
 
-.counter span {
-    padding: 0.2rem;
+.counter input[type="number"]::-webkit-outer-spin-button,
+.counter input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+.counter input[type="number"] {
+    padding: 4px 2px;
+    width: 2rem;
+    text-align: center;
+    border: 1px solid silver;
+    border-radius: 2px;
 }
 
 .counter button {
