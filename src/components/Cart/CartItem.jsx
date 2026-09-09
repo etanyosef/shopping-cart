@@ -25,6 +25,7 @@ export default function CartItem({item}) {
                 <h3>
                     <Link to={`/product/${item.id}`}>{item.title}</Link>
                 </h3>
+                <span className={styles.price}>₱{item.price}</span>
             </div>
 
             <div className={styles.counter}>
@@ -45,9 +46,7 @@ export default function CartItem({item}) {
                 >➕</button>
             </div>
 
-            <div>
-                <span className={styles.total}>{getTotalPrice()}</span>
-            </div>
+            <span className={styles.total}>₱{getTotalPrice()}</span>
 
             <button 
                 className={styles.deleteBtn}
