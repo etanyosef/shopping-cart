@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router"
 import styles from "./Shop.module.css"
 import loader from "./Loader/productLoader.module.css"
 import Header from "../Header/Header";
+import Footer from "../Footer";
 import Counter from "./Counter/Counter";
 import AddToCart from "./AddToCart/AddToCart";
 
@@ -69,7 +70,7 @@ export default function Product() {
                         <span className={styles.productDesc}>
                             <h2>{product.title}</h2>
                             <p>{product.description}</p>
-                            <em>Php {product.price}</em>
+                            <em>₱{product.price}</em>
 
                             <Counter count={count} setCount={setCount} />
 
@@ -81,6 +82,7 @@ export default function Product() {
                     </div>
                 </div>
             </main>
+            <Footer />
         </>
     )
 }
