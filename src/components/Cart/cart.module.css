@@ -74,7 +74,16 @@
 }
 
 .item h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+}
+
+.item a {
+    text-decoration: none;
+    color: rgb(40, 40, 255);
+}
+
+.item a:hover {
+    color: red;
 }
 
 .item .imgContainer {
