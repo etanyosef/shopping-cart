@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import styles from "./ShopNowButton.module.css";
+import styles from "./shopNowButton.module.css";
 
 export default function ShopNowButton() {
     return (
