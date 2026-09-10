@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import ShopNowButton from "../ShopNowButton/ShopNowButton";
+import Footer from "../Footer";
 
 export default function Cart() {
     const { cart, cartLength } = useContext(CartContext);
@@ -19,6 +20,7 @@ export default function Cart() {
                     <ShopNowButton />
                 </div>
             </main>
+            <Footer />
         </>
     )
 
@@ -40,6 +42,7 @@ export default function Cart() {
                     </div>
                 </div>
             </main>
+            <Footer />
         </>
     )
 }
