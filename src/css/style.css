@@ -38,11 +38,38 @@ header h1 {
 }
 
 footer {
-    text-align: center;
-    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    gap: 0.2rem;
+    padding: 1rem 0;
     border-top: 1px solid rgb(200, 200, 200);
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(55, 55, 55);
+    color: rgb(180, 180, 180);
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+footer .created-by {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+footer svg {
     color: gray;
+    width: 30px;
+    height: 30px;
+}
+
+footer svg:hover {
+    color: white;
 }
 
 .page-title {
